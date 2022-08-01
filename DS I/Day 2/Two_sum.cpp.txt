@@ -1,0 +1,23 @@
+class Solution {
+public:
+	vector<int> twoSum(vector<int>& nums, int target) {
+		vector<int>ans;
+		unordered_map<int,int> ump;
+		int i=0;
+		for(int i=0;i<nums.size();i++)
+		{
+			int rem = target - nums[i];
+			auto itr = ump.find(rem);
+			if(itr!=ump.end())
+			{
+				ans.push_back(i);
+				ans.push_back(itr->second);
+
+				return ans;
+			}
+			ump.insert({nums[i],i});
+		}
+
+		return ans;
+	}
+};
